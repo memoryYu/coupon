@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>收银台</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="js/config.js?__inline"></script>
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://qcdn.letwx.com/app/dist/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+		<article id="main" class="hide">
+			<!--skjgPage开始-->
+			<section id="skjgPage" class="wh-100 hide">
+				<div class="back">
+					收款结果
+					<a href="javascript:window.history.go(-1)">
+						<img src="images/jiantou.png" alt="" />
+					</a>
+				</div>
+				<div class="skcg">
+					<img src="images/gou.png"/>
+					收款成功
+				</div>
+				<div class="detail">
+					<div class="sum">
+						<div class="jyje">交易金额（元）</div>
+						<div class="yuan">￥<span id="val">0.00</span></div>
+					</div>
+					<ul class="detailList">
+						<!--<li>
+							<div class="left">交易时间</div>
+							<div class="right">2016-5-20 10:20:16</div>
+						</li>
+						<li>
+							<div class="left">付款方式</div>
+							<div class="right">微信</div>
+						</li>
+						<li>
+							<div class="left">付款人</div>
+							<div class="right">微信账户</div>
+						</li>
+						<li>
+							<div class="left">收银员</div>
+							<div class="right">吕女士</div>
+						</li>
+						<li>
+							<div class="left">收款账户</div>
+							<div class="right">店铺余额</div>
+						</li>
+						<li>
+							<div class="left">交易单号</div>
+							<div class="right">54895615156485</div>
+						</li>
+						<li>
+							<div class="left">实收金额</div>
+							<div class="right">+5</div>
+						</li>
+						<li>
+							<div class="left">商品详情</div>
+							<div class="right">21551</div>
+						</li>-->
+					</ul>
+					<textarea id="detailTMP" class="hide">
+						<li>
+							<div class="left">交易时间</div>
+							<div class="right"><%=data.time%></div>
+						</li>
+						<li>
+							<div class="left">付款方式</div>
+							<div class="right"><%=data.method%></div>
+						</li>
+						<li>
+							<div class="left">付款人</div>
+							<div class="right"><%=data.payuser%></div>
+						</li>
+						<li>
+							<div class="left">收银员</div>
+							<div class="right"><%=data.cashchecker%></div>
+						</li>
+						<li>
+							<div class="left">收款账户</div>
+							<div class="right"><%=data.shop%></div>
+						</li>
+						<li>
+							<div class="left">交易单号</div>
+							<div class="right"><%=data.out_trade_no%></div>
+						</li>
+						<li>
+							<div class="left">实收金额</div>
+							<div class="right">+<%=data.total_fee%></div>
+						</li>
+						<li>
+							<div class="left">商品详情</div>
+							<div class="right"><%=data.desp%></div>
+						</li>
+					</textarea>
+				</div>
+				<a href="sy.html" class="btn btn-bottom">关闭</a>
+			</section>
+			<!--skjgPage结束-->
+			<!--正在收款中-->
+			<section id="pay-loading" class="M-loading-pop wh-100">
+				<div class="mpop">
+					<div class="box box-center box-v wh-100">
+						<div class="ball-clip-rotate-multiple">
+							<div></div>
+							<div></div>
+						</div>
+						<div class="m-t-15 c-fff loading-font">正在收款中...</div>
+					</div>
+				</div>
+			</section>
+			<!--收款成功-->
+			<section id="pay-suc" class="wh-100 hide">
+				<div class="wh-100 box box-center">
+					<div class="container box box-v box-center">
+						<img src="images/chengg.png"/>
+						<p>收款成功</p>
+						<div id="confirm" style="width:78%;" class="btn green-btn">确认</div>
+					</div>					
+				</div>
+			</section>
+			<!--收款失败-->
+			<section id="pay-fail" class="wh-100 hide">
+				<div class="wh-100 box box-center">
+					<div class="container box box-v box-center">
+						<img src="images/shibai.png"/>
+						<p>
+							收款失败<br />
+							<span id="reason">网络连接超时</span>
+						</p>
+						<div id="close" style="width:78%;" class="btn white-btn">关闭</div>
+					</div>					
+				</div>
+			</section>
+		</article>
+	</body>
+	<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+	<script type="text/javascript" src="js/skjg3.js"></script>
+</html>

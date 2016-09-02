@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>收银台</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="js/config.js?__inline"></script>
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://qcdn.letwx.com/app/dist/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+		<article id="main" class="hide">
+			<!--skjgPage开始-->
+			<section id="xqPage" class="wh-100 hide"></section>
+			<textarea id="xqTMP" class="hide">
+				<div class="back">
+					详情
+					<a href="javascript:window.history.go(-1)">
+						<img src="images/jiantou.png" alt="" />
+					</a>
+					<!--<span class="tuik">退款</span>-->
+					<a data-total_fee="<%=data.total_fee%>" data-no="<%=data.out_trade_no%>" data-typecode="<%=data.typecode%>" href="tk.html" class="tuik <%=(!data.id)?'hide':''%>">退款</a>
+				</div>
+				<div class="skcg">
+					<img src="images/gou.png"/>
+					收款成功
+				</div>
+				<div class="detail">
+					<div class="sum">
+						<div class="jyje">交易金额（元）</div>
+						<div class="yuan">￥<span><%=data.total_fee%></span></div>
+					</div>
+					<ul class="detailList">
+						<li>
+							<div class="left">交易时间</div>
+							<div class="right"><%=data.pay_time%></div>
+						</li>
+						<li>
+							<div class="left">付款方式</div>
+							<div class="right"><%=data.method%></div>
+						</li>
+						<li>
+							<div class="left">付款人</div>
+							<div class="right"><%=data.payuser%></div>
+						</li>
+						<li>
+							<div class="left">收银员</div>
+							<div class="right"><%=data.cashchecker%></div>
+						</li>
+						<li>
+							<div class="left">收款账户</div>
+							<div class="right"><%=data.device_info%></div>
+						</li>
+						<li>
+							<div class="left">交易单号</div>
+							<div class="right"><%=data.out_trade_no%></div>
+						</li>
+						<li>
+							<div class="left">实收金额</div>
+							<div class="right"><%=data.total_fee%></div>
+						</li>
+						<li>
+							<div class="left">商品详情</div>
+							<div class="right"><%=data.desp%></div>
+						</li>
+						<li class="<%=(!data.id)?'hide':''%>">
+							<div class="left">卡券名称</div>
+							<div class="right"><%=data.coupon_name%></div>
+						</li>
+						<li class="<%=(!data.id)?'hide':''%>">
+							<div class="left">卡券类型</div>
+							<div class="right"><%=data.coupon_type%></div>
+						</li>
+						<li class="<%=(!data.id)?'hide':''%>">
+							<div class="left">卡券订单号</div>
+							<div class="right"><%=data.id%></div>
+						</li>
+					</ul>
+				</div>
+			</textarea>
+			<!--skjgPage结束-->
+		</article>
+	</body>
+	<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+	<script type="text/javascript" src="js/xq.js"></script>
+</html>

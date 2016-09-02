@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>收银台</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="js/config.js?__inline"></script>
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://qcdn.letwx.com/app/dist/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+		<article id="main" class="hide">
+			<!--tkPage开始-->
+			<section id="tkPage" class="wh-100 hide">
+				<div class="back">
+					退款
+					<a href="javascript:window.history.go(-1)">
+						<img src="images/jiantou.png" alt="" />
+					</a>
+				</div>
+				<ul class="tkList">
+					<li>
+						<div class="left">退款单号</div>
+						<div class="right" id="no">123456789</div>
+					</li>
+					<li>
+						<div class="left">原订单金额</div>
+						<div class="right" id="total_fee">50</div>
+					</li>
+				</ul>
+				<div class="gap"></div>
+				<div class="tkje">
+					<div class="left">退款金额</div>
+					<input id="tkje" type="text" class="right"/>
+					<img src="images/xxx.png" id="cleartk"/>
+				</div>
+				<a href="zdjl.html" class="d-b btn" style="width: 78%;" id="tk">确认退款</a>
+			</section>
+			<!--tkPage结束-->
+		</article>
+	</body>
+	<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+	<script type="text/javascript" src="js/tk.js"></script>
+</html>

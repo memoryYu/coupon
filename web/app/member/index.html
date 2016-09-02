@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>微会员</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+    	<script src="js/config.js"></script>
+    	<link rel="stylesheet" href="css/base2.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css?v=201606281145" />
+		<link rel="stylesheet" type="text/css" href="css/mobiscroll.custom-2.16.1.min.css" />
+		<link rel="stylesheet" href="css/dialog.css" />
+		<link rel="stylesheet" href="css/mobile-select-area.css" />
+		<script type="text/javascript" src="js/zepto.min.js"></script>
+		<script type="text/javascript" src="js/dialog.js"></script>
+		<script type="text/javascript" src="js/mobile-select-area.js"></script>
+    </head>
+	<body>
+		<article id="main" class="hide">
+			<!--语言选择弹出框-->
+			<section id="languagePage" class="hide m-pop wh-100">
+				<div class="wh-100 box box-center">
+					<div class="languageBox">
+						<p class="chinese">请选择会员卡的语言版本</p>
+						<p class="english">please select the language version of the membership card</p>
+						<div class="w-100 p-tb-10">
+							<div id="chinese" class="languageBtn">中文/Chinese</div>
+							<div id="english" class="languageBtn orange">英文/English</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--indexPage开始-->
+			<section id="indexPage" class="hide wh-100">
+				
+			</section>
+			<textarea id="indexPageTMP" class="hide">
+				<div class="head t-c" style="background-color:<%=cover.bgcolor%>; background-image: url(<%=cover.bgpic%>);">
+					<img src="<%=cover.headimgurl%>" class="face"/>
+					<p class="in-wenzi language"><%=info.name%></p>
+					<p class="membergrade"><span class="language">会员等级</span>：<span class="language"><%=info.group%></span></p>
+				</div>
+				<div id="IDbox">
+					ID:<%=info.erpid%>
+					<img src="images/gm.png" class="smallQR"/>
+				</div>
+				<div id="barcode" class="hide">
+					<div class="m-auto"></div>
+					<p class="showTip language">会员个人专属码，请在购买商品时出示</p>
+				</div>
+				<ul class="heheLIst" style="padding-top: 0;">
+					<li class="box t-c hide">
+						<div class="box-f1"><p>积分</p><p><%=info.score%></p></div>
+						<div class="box-f1"><p>余额</p><p>￥2660</p></div>
+						<div class="box-f1"><p>等级</p><p>26</p></div>
+					</li>
+					<li class="kongbai"></li>
+					<li>
+                        <a data-nextgroupexp="<%=info.nextgroupexp%>" data-nextgroupdesc="<%=info.nextgroupdesc%>" id="cardDetail" class="d-b wh-100" data-exp="<%=info.exp%>" data-nextgroup="<%=info.nextgroup%>" data-score="<%=info.score%>" data-group="<%=info.group%>"  data-groupdesc="<%=info.groupdesc%>" data-desc="<%=cover.desc%>" data-detail="<%=cover.detail%>">
+                            <span class="language">积分规则及特权</span>
+                            <div class="ico_go"></div>
+                        </a>
+                    </li>
+                    <li>
+						 <a id="myJifen" class="d-b wh-100">
+                            <span class="language">我的积分</span>
+                            <span class="in-wenzi1 abs"><%=info.score%></span>
+                            <div class="ico_go"></div>
+                        </a>
+					</li>
+					<li>
+						 <a id="myXiaofei" class="d-b wh-100">
+                            <span class="language">我的消费</span>
+                            <div class="ico_go"></div>
+                        </a>
+					</li>
+					<li>
+						 <a data-cash="<%=info.cash%>" id="myYuE" class="d-b wh-100">
+                            <span class="language">我的余额</span>
+                            <span class="in-wenzi1 abs"><%=info.cash%></span>
+                            <div class="ico_go"></div>
+                        </a>
+					</li>
+					<li>
+						 <a id="hycz" class="d-b wh-100">
+                            <span class="language">会员充值</span>
+                            <div class="ico_go"></div>
+                        </a>
+					</li>
+					<li>
+                        <a id="myCoupon" class="d-b wh-100">
+                            <span class="language">我的券</span>
+                            <div class="ico_go"></div>
+                        </a>
+                    </li>
+					<li>
+                        <a id="myinfo" class="d-b wh-100">
+                            <span class="language">个人信息</span>
+                            <div class="ico_go"></div>
+                        </a>
+                    </li>
+					<li class="kongbai"></li>
+					<li>
+                        <a id="jifenMall" class="d-b wh-100">
+                            <span class="language">积分商城</span>           
+                            <span class="in-wenzi1 abs"></span>
+                            <div class="ico_go"></div>
+                        </a>
+                    </li>
+					<li>
+                        <a href="<%=cover.merchanturl%>" class="d-b wh-100">
+                            <span class="language">附近门店</span><div class="ico_go"></div>
+                        </a>
+                    </li>
+					<li>
+                        <a href="<%=active.url%>" class="d-b wh-100">
+                            <span class="language">优惠活动</span>
+                            <span class="in-wenzi1 abs language"><%=active.title%></span>
+                            <div class="ico_go"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="invite" class="d-b wh-100">
+                            <span class="language">邀请好友</span>
+                            <span class="in-wenzi1 abs"></span>
+                            <div class="ico_go"></div>
+                        </a>
+                    </li>
+					<li class="kongbai"></li>
+				</ul>
+			</textarea>
+			<!--indexPage结束-->
+            <section id="indexPageNoBind" class="hide">
+				
+			</section>
+			<textarea id="indexPageNoBindTMP" class="hide">
+				<div class="head t-c" style="background-color:<%=cover.bgcolor%>; background-image: url(<%=cover.bgpic%>);">
+					<img src="<%=cover.logo%>" class="face"/>
+					<p class="in-wenzi language"><%=cover.grade%></p>
+				</div>
+				
+				<div id="getNowBtn" class="getNow language">立即领取</div>
+				
+                
+				<ul class="heheLIst">
+                    <li></li>
+					<li>
+                        <a id="cardDetail2" class="d-b wh-100"  data-desc="<%=cover.desc%>" data-detail="<%=cover.detail%>">
+                           <span class="language">积分规则及特权</span>
+                           <div class="ico_go"></div>
+                        </a>
+                    </li>
+					<li>
+                        <a href="<%=cover.merchanturl%>" class="d-b wh-100">
+                            <span class="language">附近门店</span>
+                            <div class="ico_go"></div>
+                        </a>
+                    </li>
+					<li>
+                        <a href="<%=active.url%>" class="d-b wh-100">
+                            <span class="language">优惠活动</span>
+                            <span class="in-wenzi1 abs language"><%=active.title%></span>
+                            <div class="ico_go"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="invite2" class="d-b wh-100">
+                            <span class="language">邀请好友</span>
+                            <span class="in-wenzi1 abs"></span>
+                            <div class="ico_go"></div>
+                        </a>
+                    </li>
+					<li class="kongbai"></li>
+				</ul>
+			</textarea>
+			<!-- 会员卡详情 -->
+			<section id="cardDetailPage" class="hide wh-100">
+				<div class="ru-head">
+                	<span class="language">积分规则及特权</span> 
+                    <a id="cardDetailBack" class="goback"></a>
+                </div>
+                <div class="m-t-45" style="margin-top: 0;padding-top: 44px;">
+                	<div class="jdt">
+                		<div class="jdtTop">
+                			<div class="current">
+                				<span id="currentScore"></span>
+                				<img src="images/ico_down.png" />
+                			</div>
+                		</div>
+                		<style id="widthChange">
+                			@-webkit-keyframes widthChange {
+							  from {
+							    width: 0;
+							  }
+							  to {
+							    width: 30%;
+							  }
+							}
+							@keyframes widthChange {
+							  from {
+							   width: 0;
+							  }
+							  to {
+							    width: 30%;
+							  }
+							}
+							@-webkit-keyframes marginLeft{
+								from {
+									left:-25px;
+								}
+								to{
+									left:-5%;
+								} 
+							}
+							@keyframes marginLeft{
+								from {
+									left:-25px;
+								}
+								to{
+									left:-5%;
+								} 
+							}
+                		</style>
+            			<div class="progress progress-warning progress-striped active">
+            				<div class="bar">
+            				</div>
+            			</div>
+                		<div class="gradeDesc clearfix">
+                			<div class="f-l">
+                				<span class="language">当前等级</span>：<span id="currentGrade" class="language">棕色</span>
+                			</div>
+                			<div class="f-r">
+                				<span class="language">下一等级</span>：<span id="nextGrade" class="language"></span>
+                				<img src="images/ico_pa.png" id="nextGradeBtn"/>
+                				<br />
+                				<span id="nextScore">2000</span><span class="language">积分</span>
+                			</div>
+                		</div>
+                	</div>
+                    <div class="ru-wenzi language">权益说明</div>
+                    <div class="ru-wenzi1 hidden-b" id="coverdesc">生日即送100元代金券<br/>会员每消费20元获得1积分，1积分可抵现1元</div>
+                    <div class="ru-wenzi language">使用须知</div>
+                    <div class="ru-wenzi1 language" id="coverdetail">特权使用详情请咨询店内服务人员<br/>本活动最终解释权归本店所有</div>
+                    <div class="kongbai hide"></div>
+                    <div class="ru-wenzi1 hide">有效期截至<span class="time abs">2016.06.25</span></div>
+                    <div class="kongbai"></div>
+                </div>
+
+			</section>
+			<!--下一等级弹出框-->
+			<section id="nextGradePage" class="hide m-pop wh-100">
+				<div class="box box-center wh-100">
+					<div class="container">
+						<div class="cHeader">
+							<p class="gradeName language" id="gradeName">银色等级</p>
+							<p class="language">会员卡特权</p>
+							<div class="close" id="closegradeBtn"></div>
+						</div>
+						<div class="gradeDetail hidden-b" id="nextgroupdesc"></div>
+					</div>
+				</div>
+			</section>
+			<!-- 激活会员卡 -->
+			<section id="activeCardPage" class="hide wh-100">
+				<div class="mycou-head">
+                    <span class="language">激活会员卡</span>
+                    <a id="activeCardBack" class="goback"></a>
+                </div>
+				<div class="m-t-45">
+				    <div class="chooseCard">
+				        <p class="choosets t-c language">请完善以下信息，以便更好的享受会员权限</p>
+				        
+                        <!--<div class="checkOut hide">
+                            <label class="checkLabel" >
+                                <input type="radio" value="0" name="card" checked >
+                                <span>领取新卡</span>
+                            </label>
+                            <label class="checkLabel" >
+                                <input type="radio" value="1" name="card" >
+                                <span>绑定实体卡</span>
+                            </label>
+                        </div>-->
+						<!--绑定实体卡-->
+                        <div class="chooseinfo hide" id="stcard">
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft">卡号</div>
+                                <input id="cardNum" class="chooseItemRight" type="tel" placeholder="请输入会员卡号" >
+                            </div>
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft">手机</div>
+                                <input id="cardTel" class="chooseItemRight" type="tel" placeholder="请输入绑定的手机号码" >
+                            </div>
+                            <div class="chooseItem itemR">
+                                <div class="chooseItemLeft">验证码</div>
+                                <input class="chooseItemRight" type="tel" placeholder="请输入验证码" >
+                                <div class="rightCheckBtn">获取验证码</div>
+                            </div>
+                        </div>
+						<!--领取新卡-->
+						<div class="xuantian language">必填信息</div>
+                        <div class="chooseinfo" id="newcard">
+                            
+                        </div>
+						<!--<textarea id="newcardTMP" class="hide">
+							<p><%=cfg.require[0].title%></p>
+						</textarea>-->
+						<textarea id="newcardTMP" class="hide">
+							<!--必填start-->
+							<%
+								if(cfg.require.length != 0){
+									for(var i=0;i<cfg.require.length;i++){
+										var type = cfg.require[i].type;
+										if(type == 'textarea'){
+                            %>
+                            <!--多行文本-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                                <div id="<%=cfg.require[i].cloumn%>" class="chooseItemRight language" style="height: 100px;">
+                                	<%=cfg.require[i].defaultvalue%>
+                                </div>
+                            </div>
+                            <%
+                            			}else if(type == 'radio'){
+                            %>
+                            <!--单选-->
+                            <div class="chooseItem">
+                                <label id="<%=cfg.require[i].cloumn%>" for="<%=cfg.require[i].cloumn%>" class="chooseItemLeft language"><%=cfg.require[i].title%></label>
+                            <%
+                            	if(cfg.require[i].defaultvalue.length != 0){
+                            		for(var j=0;j<cfg.require[i].defaultvalue.length;j++){
+                            %>
+                                <div class="d-i-b m-r-15">
+                                	<input name="<%=cfg.require[i].cloumn%>" type="radio" id="<%=cfg.require[i].cloumn%><%=j%>" value="<%=cfg.require[i].defaultvalue[j]%>"/>
+                                	<label for="<%=cfg.require[i].cloumn%><%=j%>" class="language"><%=cfg.require[i].defaultvalue[j]%></label>
+                                </div>
+                            <%
+                            		}
+                            	}
+                            %>    
+                            </div>
+                            <%
+                            			}else if(type == 'checkbox'){
+                            %>
+                            <!--多选-->
+                            <div class="chooseItem">
+                                <label id="<%=cfg.require[i].cloumn%>" for="<%=cfg.require[i].cloumn%>" class="chooseItemLeft language"><%=cfg.require[i].title%></label>
+                            <%
+                            	if(cfg.require[i].defaultvalue.length != 0){
+                            		for(var j=0;j<cfg.require[i].defaultvalue.length;j++){
+                            %>   
+                                <div class="d-i-b m-r-15">
+	                                <input id="<%=cfg.require[i].cloumn%><%=j%>"  type="checkbox" name="<%=cfg.require[i].cloumn%>" value="<%=cfg.require[i].defaultvalue[j]%>">
+	                                <label for="<%=cfg.require[i].cloumn%><%=j%>" class="language"><%=cfg.require[i].defaultvalue[j]%></label>
+	                            </div>    
+                            <%
+                            		}
+                            	}
+                            %>      
+                            </div>
+                            <%
+                            			}else if(type == 'select'){
+                            %>
+                            <!--下拉-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                                <select id="<%=cfg.require[i].cloumn%>" class="chooseItemRight">
+                                    <option value="" class="language">请选择<%=cfg.require[i].title%></option>
+                            <%
+                            	if(cfg.require[i].defaultvalue.length != 0){
+                            		for(var j=0;j<cfg.require[i].defaultvalue.length;j++){
+                            %>         
+                                    <option value="<%=cfg.require[i].defaultvalue[j]%>" class="language"><%=cfg.require[i].defaultvalue[j]%></option>
+                            <%
+                            		}
+                            	}
+                            %>         
+                                </select>
+                            </div>
+                            <%
+                            			}else if(type == 'datepicker'){
+                            %>
+                            <!--日期选择器-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                                <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight" type="date" value="<%=cfg.require[i].defaultvalue%>">
+                            </div>
+                            <%
+                            			}else if(type == 'timepicker'){ 
+                            %>
+                            <!--时间选择器-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                                <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight" type="time" value="<%=cfg.require[i].defaultvalue%>">
+                            </div>
+                            <%
+                            			}else if(type == 'datetimepicker'){
+                            %>
+                            <!--日期时间选择器-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                                <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight" type="datetime" value="<%=cfg.require[i].defaultvalue%>">
+                            </div>
+                            <%
+                            			}else if(type == 'address'){
+                            %>
+                            <!--地址-->
+                            <div class="chooseItem">
+                            <%
+                            	var BTaddress = cfg.require[i].defaultvalue.split('|');
+                            %>	
+                                <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                                <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight language" type="text" value="<%=BTaddress[0]%>" data-value="0,0,0" placeholder="请选择省市区"/>
+        						<input class="chooseItemRight" type="hidden" id="<%=cfg.require[i].cloumn%>Hidden" value="0,0,0"/>
+        						<input id="<%=cfg.require[i].cloumn%>Detail" class="chooseItemRight language" type="text" placeholder="请输入详细地址" value="<%=BTaddress[1]%>" style="margin-top: 20px;">
+                            </div>
+                            <%
+                            			}else if(type == 'tel'){
+                            					if(cfg.require[i].cloumn != 'mobile'){
+                            %>
+                            <!--不带验证码的手机号-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                                <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight language" type="tel" placeholder="请输入<%=cfg.require[i].title%>" value="<%=cfg.require[i].defaultvalue%>">
+                            </div>
+                            <%
+                            					}else{
+                            %>
+                            <!--带验证码的手机号-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                                <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight language" type="tel" placeholder="请输入<%=cfg.require[i].title%>" value="<%=cfg.require[i].defaultvalue%>">
+                            </div>
+                            <div class="chooseItem itemR">
+                                <div class="chooseItemLeft language">验证码</div>
+                                <input id="<%=cfg.require[i].cloumn%>Code" class=" identifycode chooseItemRight language" type="tel" placeholder="请输入验证码" >
+                                <div data-id="<%=cfg.require[i].cloumn%>" id="<%=cfg.require[i].cloumn%>Check" class="rightCheckBtn language">获取验证码</div>
+                            </div>
+                            <%
+                            					}
+                            			}else if(type == 'img'){
+                            %>
+                            <!--上传图片-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                                <div>
+	                                <div id="<%=cfg.require[i].cloumn%>" class="box box-center m-b-10 preImg">
+	                                	<img src="images/defaultPic.png"/>
+	                                </div>
+	                                <input class="uploadImg language" type="button" value="选择图片">
+                                </div>	
+                            </div>
+                            <%
+                            			}else{
+                            %>
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                                <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight language" type="<%=cfg.require[i].type%>" placeholder="请输入<%=cfg.require[i].title%>" value="<%=cfg.require[i].defaultvalue%>">
+                            </div>
+                            <%
+	                            		}
+	                            	}
+	                            }	
+                            %>
+                            <!--必填end-->
+                            
+                            <!--选填start-->
+                            <%
+								if(cfg.other.length != 0){
+							%>
+							<div class="xuantian">选填信息</div>
+							<%		
+									for(var i=0;i<cfg.other.length;i++){
+										var type = cfg.other[i].type;
+										switch(type){
+                            				case 'textarea': 
+                            %>
+                            <!--多行文本-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.other[i].title%></div>
+                                <div id="<%=cfg.other[i].cloumn%>" class="chooseItemRight language" style="height: 100px;">
+                                	<%=cfg.other[i].defaultvalue%>
+                                </div>
+                            </div>
+                            <%
+                            					break;
+                            				case 'radio': 
+                            %>
+                            <!--单选-->
+                            <div class="chooseItem">
+                                <label id="<%=cfg.other[i].cloumn%>" for="<%=cfg.other[i].cloumn%>" class="chooseItemLeft language"><%=cfg.other[i].title%></label>
+                            <%
+                            	if(cfg.other[i].defaultvalue.length != 0){
+                            		for(var j=0;j<cfg.other[i].defaultvalue.length;j++){
+                            %>
+                                <div class="d-i-b m-r-15">
+                                	<input name="<%=cfg.other[i].cloumn%>" type="radio" id="<%=cfg.other[i].cloumn%><%=j%>" value="<%=cfg.other[i].defaultvalue[j]%>"/>
+                                	<label for="<%=cfg.other[i].cloumn%><%=j%>" class="language"><%=cfg.other[i].defaultvalue[j]%></label>
+                                </div>
+                            <%
+                            		}
+                            	}
+                            %>    
+                            </div>
+                            <%
+                            					break;
+                            				case 'checkbox': 
+                            %>
+                            <!--多选-->
+                            <div class="chooseItem">
+                                <label id="<%=cfg.other[i].cloumn%>" for="<%=cfg.other[i].cloumn%>" class="chooseItemLeft language"><%=cfg.other[i].title%></label>
+                            <%
+                            	if(cfg.other[i].defaultvalue.length != 0){
+                            		for(var j=0;j<cfg.other[i].defaultvalue.length;j++){
+                            %>   
+                                <div class="d-i-b m-r-15">
+	                                <input id="<%=cfg.other[i].cloumn%><%=j%>"  type="checkbox" name="<%=cfg.other[i].cloumn%>" value="<%=cfg.other[i].defaultvalue[j]%>">
+	                                <label for="<%=cfg.other[i].cloumn%><%=j%>" class="language"><%=cfg.other[i].defaultvalue[j]%></label>
+	                            </div>    
+                            <%
+                            		}
+                            	}
+                            %>      
+                            </div>
+                            <%
+                            					break;
+                            				case 'select': 
+                            %>
+                            <!--下拉-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.other[i].title%></div>
+                                <select id="<%=cfg.other[i].cloumn%>" class="chooseItemRight">
+                                    <option value="" class="language">请选择<%=cfg.other[i].title%></option>
+                            <%
+                            	if(cfg.other[i].defaultvalue.length != 0){
+                            		for(var j=0;j<cfg.other[i].defaultvalue.length;j++){
+                            %>         
+                                    <option value="<%=cfg.other[i].defaultvalue[j]%>" class="language"><%=cfg.other[i].defaultvalue[j]%></option>
+                            <%
+                            		}
+                            	}
+                            %>         
+                                </select>
+                            </div>
+                            <%
+                            					break;
+                            				case 'datepicker': 
+                            %>
+                            <!--日期选择器-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.other[i].title%></div>
+                                <input id="<%=cfg.other[i].cloumn%>" class="chooseItemRight" type="date" value="<%=cfg.other[i].defaultvalue%>">
+                            </div>
+                            <%
+                            					break;
+                            				case 'timepicker': 
+                            %>
+                            <!--时间选择器-->
+                            <div class="chooseItem language">
+                                <div class="chooseItemLeft"><%=cfg.other[i].title%></div>
+                                <input id="<%=cfg.other[i].cloumn%>" class="chooseItemRight" type="time" value="<%=cfg.other[i].defaultvalue%>">
+                            </div>
+                            <%
+                            					break;
+                            				case 'datetimepicker': 
+                            %>
+                            <!--日期时间选择器-->
+                            <div class="chooseItem language">
+                                <div class="chooseItemLeft"><%=cfg.other[i].title%></div>
+                                <input id="<%=cfg.other[i].cloumn%>" class="chooseItemRight" type="datetime" value="<%=cfg.other[i].defaultvalue%>">
+                            </div>
+                            <%
+                            					break;
+                            				case 'address': 
+                            %>
+                            <!--地址-->
+                            <div class="chooseItem">
+                            <%
+                            	var XTaddress = cfg.require[i].defaultvalue.split('|');
+                            %>		
+                                <div class="chooseItemLeft language"><%=cfg.other[i].title%></div>
+                                <input id="<%=cfg.other[i].cloumn%>" class="chooseItemRight language" type="text" value="<%=XTaddress[0]%>" data-value="0,0,0" placeholder="请选择省市区"/>
+        						<input class="chooseItemRight" type="hidden" id="<%=cfg.other[i].cloumn%>Hidden" value="0,0,0"/>
+        						<input id="<%=cfg.other[i].cloumn%>Detail" class="chooseItemRight language" type="text" placeholder="请输入详细地址" value="<%=XTaddress[1]%>" style="margin-top: 20px;">
+                            </div>
+                            <%
+                            					break;
+                            				case 'tel': 
+                            					if(cfg.require[i].cloumn != 'mobile'){
+                            %>
+                            <!--不带验证码的手机号-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.other[i].title%></div>
+                                <input id="<%=cfg.other[i].cloumn%>" class="chooseItemRight language" type="tel" placeholder="请输入<%=cfg.other[i].title%>" value="<%=cfg.other[i].defaultvalue%>">
+                            </div>
+                            <%
+                            					}else{
+                            %>
+                            <!--带验证码的手机号-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.other[i].title%></div>
+                                <input id="<%=cfg.other[i].cloumn%>" class="chooseItemRight language" type="tel" placeholder="请输入<%=cfg.other[i].title%>" value="<%=cfg.other[i].defaultvalue%>">
+                            </div>
+                            <div class="chooseItem itemR">
+                                <div class="chooseItemLeft language">验证码</div>
+                                <input data-id="<%=cfg.other[i].cloumn%>" id="<%=cfg.other[i].cloumn%>Code" class="identifycode chooseItemRight language" type="tel" placeholder="请输入验证码" >
+                                <div id="<%=cfg.other[i].cloumn%>Check" class="rightCheckBtn language">获取验证码</div>
+                            </div>
+                            <%
+                            					}
+                            %>
+                            <%
+                            					break;
+                            				case 'img': 
+                            %>
+                            <!--上传图片-->
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.other[i].title%></div>
+                                <div>
+	                                <div id="<%=cfg.other[i].cloumn%>" class="box box-center m-b-10 preImg">
+	                                	<img src="images/defaultPic.png"/>
+	                                </div>
+	                                <input class="uploadImg language" type="button" value="选择图片">
+                                </div>	
+                            </div>
+                            <%
+                            					break;
+                            				default :
+                            %>
+                            <div class="chooseItem">
+                                <div class="chooseItemLeft language"><%=cfg.other[i].title%></div>
+                                <input id="<%=cfg.other[i].cloumn%>" class="chooseItemRight language" type="<%=cfg.other[i].type%>" placeholder="请输入<%=cfg.other[i].title%>" value="<%=cfg.other[i].defaultvalue%>">
+                            </div>
+                            <%
+	                            		}
+	                            	}
+	                            }	
+                            %>
+                            <!--选填end-->
+						</textarea>
+						
+                        <div id="activeCradConfirm" class="getNow language">确定</div>
+				    </div>
+				</div>
+			</section>
+
+			<!--jifenPage开始-->
+			<section id="jifenPage" class="hide wh-100">
+				<div class="mycou-head">
+                    <span class="language">积分明细</span>
+                    <a id="jifenBack" class="goback"></a>
+                </div>
+                <div class="m-t-45" style="margin-top: 0;padding-top: 45px;">
+	                <div class="checkOut">
+	                    <label class="checkLabel t-c" >
+	                        <input type="radio" value="-1" name="jifen" checked >
+	                        <span class="language">所有</span>
+	                    </label>
+	                    <label class="checkLabel t-c" >
+	                        <input type="radio" value="0" name="jifen" >
+	                        <span class="language">加积分</span>
+	                    </label>
+	                    <label class="checkLabel t-c" >
+	                        <input type="radio" value="1" name="jifen" >
+	                        <span class="language">减积分</span>
+	                    </label>
+	                </div>
+					<ul id="myjfList" style="margin-top: 10px;">
+						
+					</ul>
+					<textarea id="myjfListTMP" class="hide">
+					<%
+						if(logs){
+							for(var i=0;i<logs.length;i++){
+					%>	
+						<li class="font-11">
+	                        <p class="word-b"><span class="language"><%=logs[i].reason%></span><br/><span class="jif-time"><%=logs[i].datestr%></span></p>
+	                        <div class="jifen abs"><%=(logs[i].type==0)?'+':'-'%><%=logs[i].score%><span class="language">积分</span></div>
+	                    </li>
+	                <%
+	                		}
+	             		}
+	                %>    
+						<li class="font-11 hide">
+	                        <p class="word-b"><span class="language">领取会员卡</span><br/><span class="jif-time">2014-02-14 15:30</span></p>
+	                        <div class="jifen abs">+100<span class="language">积分</span></div>
+	                    </li>
+					</textarea>
+					<div id="loadmore" class="loadmore language">加载更多</div>
+				</div>
+			</section>
+			<!--jifenPage结束-->
+			
+			<!--xiaofeiPage开始-->
+			<section id="xiaofeiPage" class="hide wh-100">
+				<div class="mycou-head">
+                    <span class="language">我的消费</span>
+                    <a id="xiaofeiBack" class="goback"></a>
+                </div>
+				<ul id="myxfList">
+					
+				</ul>
+				<textarea id="myxfListTMP" class="hide">
+				<%
+					if(orders){
+						for(var i=0;i<orders.length;i++){
+				%>	
+					<li class="font-11">
+                        <p class="word-b"><span class="language">门店消费</span><br/><span class="jif-time"><%=orders[i].datetime%></span></p>
+                        <div class="jifen abs"><%=orders[i].money%><span class="language">元</span></div>
+                    </li>
+                <%
+                		}
+             		}
+                %>    
+				</textarea>
+				<div id="loadmore2" class="loadmore language">加载更多</div>
+			</section>
+			<!--xiaofeiPage结束-->
+			
+			<!--yuePage开始-->
+			<section id="yuePage" class="hide wh-100">
+				<div class="mycou-head">
+                    <span class="language">我的余额</span>
+                    <a id="yueBack" class="goback"></a>
+                </div>
+                <div class="wdye">
+                	<span class="language">我的余额</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="small green">￥</span><span id="cash" class="big green">0.00</span>
+                </div>
+                <div class="checkOut">
+                    <label class="checkLabel t-c" >
+                        <input type="radio" value="-1" name="yue" checked >
+                        <span class="language">所有</span>
+                    </label>
+                    <label class="checkLabel t-c" >
+                        <input type="radio" value="0" name="yue" >
+                        <span class="language">会员充值</span>
+                    </label>
+                    <label class="checkLabel t-c" >
+                        <input type="radio" value="1" name="yue" >
+                        <span class="language">会员消费</span>
+                    </label>
+                </div>
+				<ul id="myyeList">
+					
+				</ul>
+				<textarea id="myyeListTMP" class="hide">
+				<%
+					if(order){
+						for(var i=0;i<order.length;i++){
+				%>	
+					<li class="font-11">
+                        <p class="word-b"><span class="language"><%=order[i].mem_type%></span><br/><span class="jif-time"><%=order[i].pay_time%></span></p>
+                        <div class="jifen abs"><%=order[i].total_fee%><span class="language">元</span></div>
+                    </li>
+                <%
+                		}
+             		}
+                %>    
+				</textarea>
+				<div id="loadmore3" class="loadmore language">加载更多</div>
+			</section>
+			<!--yuePage结束-->
+			
+			<!--hyczPage开始-->
+			<section id="hyczPage" class="hide wh-100"></section>
+			<textarea id="hyczTMP" class="hide">
+				<div class="mycou-head">
+                    <span class="language">会员充值</span>
+                    <a id="hyczBack" class="goback"></a>
+                </div>
+                <div class="contain">
+                	<span class="language">请选择以下充值套餐</span>
+                	<ul id="recharge" class="clearfix">
+                	<%
+                		if(data.length>0){
+                			for(var i=0;i<data.length;i++){
+                	%>	
+                		<li data-money="<%=data[i].total_fee%>" data-name="<%=data[i].combo_name%>" data-id="<%=data[i].id%>" >
+                			<div><%=data[i].total_fee%><span class="language">元</span></div>
+                		</li>
+                	<%
+                			}
+                		}	
+                	%>	
+                		<!--<li>
+                			<div>200<span class="language">元</span></div>
+                		</li>-->
+                	</ul>
+                	<%
+                		if(data[0]){
+                	%>
+                	<span class="language">充值金额为</span>：<span id="rechargeTip" class="language"><%=data[0].combo_name%></span>
+                	<%
+                		}
+                	%>
+                </div>
+                <div id="qd" class="language sure">确定</div>
+			</textarea>	
+			<!--hyczPage结束-->
+
+			<!--mycounpPage开始-->
+			<section id="mycouponPage" class="hide wh-100">
+                <div class="header">
+                    <div class="mycou-head">
+                        <span class="language">我的卡券</span>
+                        <a id="mycouponPageBack" class="goback"></a>
+                    </div>
+                    <div class="box t-c mycou-box">
+                        <div id="canUseBtn" class="box-f1 mycou-box1 active language">可使用</div>
+                        <div id="isUsedBtn" class="box-f1 mycou-box1 language">已使用</div>
+                        <div id="isOverBtn" class="box-f1 mycou-box1 language">已过期</div>
+                    </div>
+                </div>
+                <div class="couponList">
+                	<div id="canUse" class="couponItemNav"></div>
+                	<div id="isUsed" class="couponItemNav hide"></div>
+                	<div id="isOver" class="couponItemNav hide"></div>
+                	<!--可使用-->
+					<textarea id="quanList1" class="hide">
+						<%
+							if(!canuse.length){
+						%>
+								<img src="images/kong.png" class="nodataPic" />
+								<div class="noData language">暂无数据</div>
+						<%		
+							}else{
+								var data = canuse;
+								for(var i=0;i<data.length;i++){
+						%>
+									<div class="counp m-auto p-t-10 rel" data-logo="<%=data[i].logo%>" data-wxqrcodeurl="<%=data[i].wxqrcodeurl%>" data-wxname="<%=data[i].wxname%>" data-code="<%=data[i].code%>" data-name="<%=data[i].name%>" data-qname="<%=data[i].qname%>" data-limitmoney="<%=data[i].limitmoney%>" data-descrip="<%=data[i].descrip%>" data-starttime="<%=data[i].starttime%>" data-endtime="<%=data[i].endtime%>" data-isnet="<%=data[i].isnet%>" data-isget="<%=data[i].isget%>" data-geturl="<%=data[i].geturl%>" data-useurl="<%=data[i].useurl%>" data-showtype="<%=data[i].showtype%>">
+				                        <div class="counp-wenzi">
+				                            <img src="<%=data[i].logo%>" class="logo"/>
+				                            <p class="counp-wenzi1"><span class="language"><%=data[i].name%></span><br/>
+				                                <span class="counp-font word-b language"><%=data[i].qname%></span>
+				                            </p>
+				                        </div>
+				                        <div class="counp-time"><span class="language">使用日期</span>：<%=data[i].starttime%><span class="language">至</span><%=data[i].endtime%></div>
+				                        <img src="./images/quan1.png" class="quan_bg w-100 abs"/>
+				                    </div>
+						<%
+								}
+							}
+						%>
+					</textarea>
+					<!--已使用-->
+                    <textarea id="quanList2" class="hide">
+						<%
+							if(!used.length){
+						%>
+								<img src="images/kong.png" class="nodataPic" />
+								<div class="noData language">暂无数据</div>
+						<%		
+							}else{
+								var data = used;
+								for(var i=0;i<data.length;i++){
+						%>
+									<div class="counp m-auto p-t-10 rel used">
+				                        <div class="counp-wenzi">
+				                            <img src="<%=data[i].logo%>" class="logo"/>
+				                            <p class="counp-wenzi1"><span class="language"><%=data[i].name%></span><br/>
+				                                <span class="counp-font word-b language"><%=data[i].qname%></span>
+				                            </p>
+				                            <img src="images/yishiyong.png" class="usedPic" />
+				                        </div>
+				                        <div class="counp-time"><span class="language">使用日期</span>：<%=data[i].starttime%><span class="language">至</span><%=data[i].endtime%></div>
+				                        <img src="./images/quan2.png" class="quan_bg w-100 abs"/>
+				                    </div>
+						<%
+								}
+							}
+						%>
+					</textarea>
+					<!--已过期-->
+					<textarea id="quanList3" class="hide">
+						<%
+							if(!expired.length){
+						%>
+								<img src="images/kong.png" class="nodataPic" />
+								<div class="noData language">暂无数据</div>
+						<%		
+							}else{
+								var data = expired;
+								for(var i=0;i<data.length;i++){
+						%>
+									<div class="counp m-auto p-t-10 rel expired" >
+				                        <div class="counp-wenzi">
+				                            <img src="<%=data[i].logo%>" class="logo"/>
+				                            <p class="counp-wenzi1"><span class="language"><%=data[i].name%></span><br/>
+				                                <span class="counp-font word-b language"><%=data[i].qname%></span>
+				                            </p>
+				                            <img src="images/yiguoqi.png" class="expiredPic" />
+				                        </div>
+				                        <div class="counp-time"><span class="language">使用日期</span>：<%=data[i].starttime%><span class="language">至</span><%=data[i].endtime%></div>
+				                        <img src="./images/quan2.png" class="quan_bg w-100 abs"/>
+				                    </div>
+						<%
+								}
+							}
+						%>
+					</textarea>
+                    <!--<div class="counp m-auto p-t-10 rel hide">
+                        <div class="counp-wenzi">
+                            <img src="./images/logo.gif" class="logo"/>
+                            <p class="counp-wenzi1">良品铺子<br/>
+                                <span class="counp-font word-b">5元优惠券</span>
+                            </p>
+                        </div>
+                        <div class="counp-time">使用日期：2015.7.31-2015.8.15</div>
+                        <img src="./images/quan1.png" class="quan_bg w-100 abs"/>
+                    </div>-->
+                </div>
+			</section>
+			<!--mycounpPage结束-->
+    		<!--券详情start-->
+    		<section id="couponinfoPage" class="hide wh-100">
+    			<div class="mycou-head">
+                    <span class="language">使用优惠券</span>
+                    <a id="couponinfoBack" class="goback"></a>
+                </div>
+                <div class="coupontop" style="padding-top: 55px;">
+                    <div class="couponsh">
+                        <img src="" alt="" class="logo" id="qinfologo"/>
+                        <span class="name language hidden-b" id="qinfoname">良品铺子</span>
+                    </div>
+                    <div class="couponName language hidden-b" id="qinfoqname">良品铺子5元优惠券</div>
+                    <div class="couponTJ language" id="qinfolimitmoney">满10元可使用</div>
+                    <div class="date"><span class="language">使用日期</span>：<span id="qinfostarttime">2015.7.31</span><span class="language">至</span><span id="qinfoendtime">2015.8.15</span></div>
+                </div>
+                <img src="images/quan_bg.png" class="w-100 d-b" alt="">
+                <div class="qrcodeCont">
+                	<!--券码以券号、条形码或二维码展示-->
+                    <div class="qrcodeImg" id="qinfoimg">
+                    	<div class="m-auto"></div>
+                    </div>
+                    <div class="qrcode" id="qinfocode">12312412</div>
+                    <div class="qrcodedesc language">门店展示即可</div>
+                </div>
+                <div style="height:10px;"></div>
+                <ul style="margin-top:0;margin-bottom:10px;">
+                    <li>
+                        <a id="qDetail" class="d-b wh-100">
+                            <span class="language">优惠券详情</span>
+                            <div class="ico_go"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="publicNum" class="d-b wh-100">
+                            <span class="language">查看公众号</span>
+                            <div class="ico_go"></div>
+                        </a>
+                    </li>
+                    <!--<li>
+                        <a href="#" class="d-b wh-100" id="qinfostore">
+                            适用门店
+                            <img src="./images/ico_go.png" class="ico_go">
+                        </a>
+                    </li>-->
+                </ul>
+			</section>
+    		<!--券详情end-->
+    		<!--优惠券详情文字说明start-->
+    		<section id="qdetailPage" class="hide wh-100">
+    			<div class="mycou-head">
+                    <span class="language">优惠券详情</span>
+                    <a id="qdetailBack" class="goback"></a>
+                </div>
+                <div class="m-t-45" style="margin-top: 0;padding-top: 45px;">
+                    <div class="kongbai"></div>
+                    <div class="ru-wenzi1 hidden-b" id="qinfodescrip"></div>
+                </div>
+			</section>
+    		<!--优惠券详情文字说明end-->
+    		<!--查看公众号start-->
+    		<section id="publicnumPage" class="hide wh-100">
+    			<div class="mycou-head">
+                    <span class="language">查看公众号</span>
+                    <a id="publicnumBack" class="goback"></a>
+                </div>
+                <div class="coupontop" style="padding-top: 65px;padding-bottom: 30px;">
+                    <div class="couponName language" id="qinfowxname">公众号名称</div>
+                </div>
+                <div class="qrcodeCont" style="padding-top: 20px;">
+                    <div class="qrcodeImg" id="qinfowxqrcodeurl">
+                    </div>
+                    <p class="followTip language">长按二维码2秒，识别二维码完成关注！或保存图片，扫描关注</p>
+                </div>
+			</section>
+    		<!--查看公众号end-->
+			<!--infoPage开始-->
+			<section id="infoPage" class="hide wh-100">
+				<div class="info-head">
+                    <span class="language">会员信息</span>
+                    <a id="infoPageBack" class="goback"></a>
+                </div>
+				<ul class="m-t-45" id="changeList">
+					
+				</ul>
+				<textarea id="changeListTMP" class="hide">
+				<%
+					if(require.length != 0){
+						for(var i=0;i<require.length;i++){
+				%>	
+					<li class="<%=(!require[i].value)?'hide':''%>">
+                        <span class="language"><%=require[i].title%></span>
+                        <span class="in-wenzi1 abs language" id="<%=(require[i].type=='address')?'address':''%><%=(require[i].type=='address')?require[i].cloumn:''%>"><%=require[i].value%></span>
+                        <div class="ico_go"></div>
+                    </li>
+                <%
+                		}
+                	}
+                %>    
+                <li>
+                    <span id="lvTit" class="language">语言</span>
+                    <span class="in-wenzi1 abs language" id="lvVal"></span>
+                    <div class="ico_go"></div>
+                </li>
+                <!--<li class="hide">
+                        姓名
+                        <span class="in-wenzi1 abs" id="infoname"></span>
+                        <img src="./images/ico_go.png" class="ico_go"/>
+                    </li>-->
+				</textarea>
+			</section>
+			<!--infoPage结束-->
+			<!--修改会员信息start-->
+			<section id="changeInfoPage" class="hide wh-100" >
+				<div class="info-head">
+                    <span class="language">修改会员信息</span>
+                    <a id="changeInfoPageBack" class="goback"></a>
+                </div>
+				<div id="changeInfoList" class="chooseinfo" style="padding-top:45px;">
+					
+				</div>
+				<textarea id="changeInfoListTMP" class="hide">
+					<%
+						if(cfg.require.length != 0){
+							for(var i=0;i<cfg.require.length;i++){
+								var type = cfg.require[i].type;
+								if(type == 'textarea'){
+                    %>
+                    <!--多行文本-->
+                    <div class="chooseItem <%=(!cfg.require[i].value)?'hide':''%>">
+                        <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                        <div id="<%=cfg.require[i].cloumn%>" class="chooseItemRight language" style="height: 100px;">
+                        	<%=cfg.require[i].value%>
+                        </div>
+                    </div>
+                    <%
+                    			}else if(type == 'radio'){
+                    %>
+                    <!--单选-->
+                    <div class="chooseItem <%=(!cfg.require[i].value)?'hide':''%>">
+                        <label id="<%=cfg.require[i].cloumn%>" for="<%=cfg.require[i].cloumn%>" class="chooseItemLeft language"><%=cfg.require[i].title%></label>
+                    <%
+                    	if(cfg.require[i].defaultvalue.length != 0){
+                    		for(var j=0;j<cfg.require[i].defaultvalue.length;j++){
+                    %>
+                        <div class="d-i-b m-r-15">
+                        	<input name="<%=cfg.require[i].cloumn%>" type="radio" id="<%=cfg.require[i].cloumn%><%=j%>" value="<%=cfg.require[i].defaultvalue[j]%>" <%=(cfg.require[i].defaultvalue[j] == cfg.require[i].value)?'checked':''%>/>
+                        	<label for="<%=cfg.require[i].cloumn%><%=j%>" class="language"><%=cfg.require[i].defaultvalue[j]%></label>
+                        </div>
+                    <%
+                    		}
+                    	}
+                    %>    
+                    </div>
+                    <%
+                    			}else if(type == 'checkbox'){
+                    %>
+                    <!--多选-->
+                    <div class="chooseItem <%=(!cfg.require[i].value)?'hide':''%>">
+                        <label id="<%=cfg.require[i].cloumn%>" for="<%=cfg.require[i].cloumn%>" class="chooseItemLeft language"><%=cfg.require[i].title%></label>
+                    <%
+                    	if(cfg.require[i].defaultvalue.length != 0){
+                    		for(var j=0;j<cfg.require[i].defaultvalue.length;j++){
+                    %>   
+                        <div class="d-i-b m-r-15">
+                            <input id="<%=cfg.require[i].cloumn%><%=j%>"  type="checkbox" name="<%=cfg.require[i].cloumn%>" value="<%=cfg.require[i].defaultvalue[j]%>" <%=(cfg.require[i].defaultvalue[j] == cfg.require[i].value)?'checked':''%>>
+                            <label for="<%=cfg.require[i].cloumn%><%=j%>" class="language"><%=cfg.require[i].defaultvalue[j]%></label>
+                        </div>    
+                    <%
+                    		}
+                    	}
+                    %>      
+                    </div>
+                    <%
+                    			}else if(type == 'select'){
+                    %>
+                    <!--下拉-->
+                    <div class="chooseItem <%=(!cfg.require[i].value)?'hide':''%>">
+                        <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                        <select id="<%=cfg.require[i].cloumn%>" class="chooseItemRight">
+                            <option value="<%=cfg.require[i].value%>" class="language"><%=cfg.require[i].value%></option>
+                    <%
+                    	if(cfg.require[i].defaultvalue.length != 0){
+                    		for(var j=0;j<cfg.require[i].defaultvalue.length;j++){
+                    %>         
+                            <option value="<%=cfg.require[i].defaultvalue[j]%>" class="language"><%=cfg.require[i].defaultvalue[j]%></option>
+                    <%
+                    		}
+                    	}
+                    %>         
+                        </select>
+                    </div>
+                    <%
+                    			}else if(type == 'datepicker'){
+                    %>
+                    <!--日期选择器-->
+                    <div class="chooseItem <%=(!cfg.require[i].value)?'hide':''%>">
+                        <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                        <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight" type="date" value="<%=cfg.require[i].value%>">
+                    </div>
+                    <%
+                    			}else if(type == 'timepicker'){ 
+                    %>
+                    <!--时间选择器-->
+                    <div class="chooseItem <%=(!cfg.require[i].value)?'hide':''%>">
+                        <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                        <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight" type="time" value="<%=cfg.require[i].value%>">
+                    </div>
+                    <%
+                    			}else if(type == 'datetimepicker'){
+                    %>
+                    <!--日期时间选择器-->
+                    <div class="chooseItem <%=(!cfg.require[i].value)?'hide':''%>">
+                        <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                        <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight" type="datetime" value="<%=cfg.require[i].value%>">
+                    </div>
+                    <%
+                    			}else if(type == 'address'){
+                    %>
+                    <!--地址-->
+                    <div class="chooseItem <%=(!cfg.require[i].value)?'hide':''%>">
+                        <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                    <%
+                    	var address  = cfg.require[i].value.split("|");
+                    %>    
+                        <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight language" type="text" value="<%=address[0]%>" data-value="0,0,0" placeholder="请选择省市区"/>
+						<input class="chooseItemRight" type="hidden" id="<%=cfg.require[i].cloumn%>Hidden" value="0,0,0"/>
+						<input id="<%=cfg.require[i].cloumn%>Detail" class="chooseItemRight language" type="text" placeholder="请输入详细地址" value="<%=address[1]%>" style="margin-top: 20px;">
+                    </div>
+                    <%
+                    			}else if(type == 'tel'){
+                    					if(cfg.require[i].cloumn != 'mobile'){
+                    %>
+                    <!--不带验证码的手机号-->
+                    <div class="chooseItem <%=(!cfg.require[i].value)?'hide':''%>">
+                        <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                        <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight language" type="tel" placeholder="请输入<%=cfg.require[i].title%>" value="<%=cfg.require[i].value%>">
+                    </div>
+                    <%
+                    					}else{
+                    %>
+                    <!--带验证码的手机号-->
+                    <div class="hide">
+	                    <div class="chooseItem <%=(!cfg.require[i].value)?'hide':''%>">
+	                        <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+	                        <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight language" type="tel" placeholder="请输入<%=cfg.require[i].title%>" value="<%=cfg.require[i].value%>">
+	                    </div>
+	                    <div class="chooseItem itemR<%=(!cfg.require[i].value)?'hide':''%>">
+	                        <div class="chooseItemLeft language">验证码</div>
+	                        <input id="<%=cfg.require[i].cloumn%>Code" class="language identifycode chooseItemRight" type="tel" placeholder="请输入验证码" >
+	                        <div data-id="<%=cfg.require[i].cloumn%>" id="<%=cfg.require[i].cloumn%>Check" class="rightCheckBtn language">获取验证码</div>
+	                    </div>
+                    </div>
+                    <%
+                    					}
+                    			}else if(type == 'img'){
+                    %>
+                    <!--上传图片-->
+                    <div class="chooseItem <%=(!cfg.require[i].value)?'hide':''%>">
+                        <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                        <div>
+                            <div id="<%=cfg.require[i].cloumn%>" class="box box-center m-b-10 preImg">
+                            	<img src="images/defaultPic.png"/>
+                            </div>
+                            <input class="uploadImg language" type="button" value="选择图片">
+                        </div>	
+                    </div>
+                    <%
+                    			}else{
+                    %>
+                    <div class="chooseItem <%=(!cfg.require[i].value)?'hide':''%>">
+                        <div class="chooseItemLeft language"><%=cfg.require[i].title%></div>
+                        <input id="<%=cfg.require[i].cloumn%>" class="chooseItemRight language" type="<%=cfg.require[i].type%>" placeholder="请输入<%=cfg.require[i].title%>" value="<%=cfg.require[i].value%>">
+                    </div>
+                    <%
+                        		}
+                        	}
+                        }	
+                    %>
+                    <!--语言设置start-->
+                    <div class="chooseItem">
+                        <label id="languageVersion" for="languageVersion" class="chooseItemLeft">语言</label>
+                        <div class="d-i-b m-r-15">
+                        	<input name="languageVersion" type="radio" id="CN" value="cn" />
+                        	<label id="labelCN" for="CN">中文</label>
+                        </div>
+                        <div class="d-i-b m-r-15">
+                        	<input name="languageVersion" type="radio" id="EN" value="en" />
+                        	<label id="labelEN" for="EN">英文</label>
+                        </div>
+                    </div>
+                    <!--语言设置end-->
+				</textarea>
+				<div id="changeConfirm" class="getNow language">确定</div>
+
+			</section>
+			<!--修改会员信息end-->
+			<!--积分商城start-->
+			<section id="jifenMallPage" class="hide wh-100">
+				<div class="info-head">
+                    <span class="language">积分商城</span>
+                    <a id="jifenMallPageBack" class="goback"></a>
+                </div>
+				<ul id="jifenList">
+					
+				</ul>
+				<textarea id="jifenListTMP" class="hide">
+				<%
+					for(var i=0;i<goods.length;i++){
+				%>	
+					<li data-limitreason="<%=goods[i].limitreason%>" data-limit="<%=goods[i].limit%>" data-expiredate="<%=goods[i].expiredate%>" data-name="<%=goods[i].name%>" data-id="<%=goods[i].id%>" data-descrip="<%=goods[i].descrip%>" data-score="<%=goods[i].score%>" data-num="<%=goods[i].num%>" data-exchangenum="<%=goods[i].exchangenum%>">
+						<a class="wh-100 rel clearfix">
+							<div class="f-l imgBox box box-center">
+								<img src="<%=goods[i].icon%>"/>
+								<div class="yiduiwan <%=(goods[i].num == 0)?'':'hide'%>"></div>
+							</div>
+							<div class="f-l w-100 rel">
+								<p class="goodsname language"><%=goods[i].name%></p>
+								<div class="points"><span class="s"><%=goods[i].score%></span><span class="language">积分</span></div>
+							</div>
+						</a>
+					</li>
+				<%
+					}
+				%>	
+					<!--<li>
+						<a href="exchangeDetail" class="wh-100 rel clearfix">
+							<div class="f-l imgBox box box-center">
+								<img src="images/p1.gif"/>
+							</div>
+							<div class="f-l w-100 rel">
+								<p class="goodsname">万达电影票两张</p>
+								<div class="points"><span>3000</span>积分</div>
+							</div>
+						</a>
+					</li>-->
+				</textarea>
+				<div id="loadmore3" class="loadmore language">加载更多</div>
+			</section>
+			<!--积分商城end-->
+			<!--兑换详情start-->
+			<section id="exchangeDetailPage" class="hide rel wh-100">
+				<div class="info-head">
+                    <span class="language">兑换详情</span>
+                    <a id="exchangeDetailBack" class="goback"></a>
+                </div>
+				<div class="exchangeTheme box box-center box-v">
+					<img src="images/quanbg.png" />
+					<p class="box exchangeTitle language t-c" id="goodsName">10寸生日蛋糕立减10元</p>
+					<p class="box language t-c" style="margin-top: 40px;margin-bottom: 20px;">微会员专享</p>
+				</div>
+				<div class="kongbai"></div>
+				<div class="ru-wenzi1">
+					<span class="language">有效期截至</span>
+					<span id="goodsExpiredate" class="time abs">2016.06.25</span>
+				</div>
+				<div class="ru-wenzi language">使用须知</div>
+				<div class="ru-wenzi1 hidden-b" id="goodsDescrip">
+					1、可在法派中国大陆地区门店使用，外面无法使用<br>
+					2、不兑换现金，不找零<br>
+					3、限购买10寸生日蛋糕使用<br>
+					4、每笔消费限用一张，优惠不叠加使用<br>
+					5、本券不记名，不挂失，不补发<br>
+				</div>
+				<div class="kongbai"></div>
+				<div class="exchangeNow">
+					<span id="goodsScore">300</span><span class="language">积分</span>
+					<div class="exchangeBtn language" id="exchangeBtn">立即兑换</div>
+				</div>
+			</section>
+			<!--兑换详情end-->
+			<!--邀请好友start-->
+    		<section id="invitePage" class="hide wh-100">
+    			<div class="mycou-head">
+                    <span class="language">邀请好友</span>
+                    <a id="inviteBack" class="goback"></a>
+                </div>
+                <div class="inviteDetail box box-center box-v">
+                	<div class="ljhd box box-h box-center">
+                		<div class="line"></div>
+                		<span class="language">累计获得</span>
+                		<div class="line"></div>
+                	</div>
+                	<p class="jf"><span id="invitescore">300</span><span class="language">积分</span></p>
+                	<p class="invitePeople"><span class="language">已成功邀请</span><span id="invitenum" class="m-lr-5">3</span><span class="language">人</span></p>
+                </div>
+                <div class="inviteTip">
+                	<span class="language">点击“邀请好友”，分享给好友或者微信群</span><br />
+                	<span class="language">好友点击邀请链接，关注我们的微信账号</span><br />
+                	<span class="language">并成功注册成为我们的会员，即可获得</span><span id="score" class="m-r-5">100</span><span class="language">积分</span>
+                </div>
+                <div id="inviteBtn" class="getNow language">邀请好友</div>
+			</section>
+    		<!--邀请好友end-->
+    		<!--邀请好友弹出框start-->
+    		<section id="sharePage" class="m-pop hide wh-100">
+    			<img src="images/fx_img.png" class="sharePic"/>
+			</section>
+    		<!--邀请好友弹出框end-->
+		</article>
+		
+		<!--<script type="text/javascript" src="js/q.js"></script>-->
+		<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/index.js?v=201606291703"></script>
+	</body>
+</html>

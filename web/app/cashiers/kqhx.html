@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>收银台</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="js/config.js?__inline"></script>
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://qcdn.letwx.com/app/dist/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+		<article id="main" class="">
+			<!--kqhxPage开始-->
+			<section id="kqhxPage" class="wh-100"></section>
+			<textarea id="kqhxTMP" class="hide">
+				<div class="back">
+					卡券搜索结果
+					<a href="javascript:window.history.go(-1)">
+						<img src="images/jiantou.png" alt="" />
+					</a>
+				</div>	
+				<div class="kqxq">卡券详情</div>
+				<ul class="detailList">
+					<li>
+						<div class="left">卡券名称</div>
+						<div class="right"><%=coupon.qname%></div>
+					</li>
+					<li>
+						<div class="left">卡券类型</div>
+						<%
+							var type = [
+								'',
+								'代金券',
+								'折扣券',
+								'礼品券',
+								'优惠券'
+							];
+						%>
+						<div class="right"><%=type[coupon.type]%></div>
+					</li>
+					<li>
+						<div class="left">商户名称</div>
+						<div class="right"><%=coupon.name%></div>
+					</li>
+					<li>
+						<div class="left">卡券说明</div>
+						<div class="right"><%=coupon.info%></div>
+					</li>
+					<li>
+						<div class="left">卡券有效期</div>
+						<div class="right"><%=coupon.startdate%>至<%=coupon.enddate%></div>
+					</li>
+				</ul>
+				<div id="<%=(!coupon.isuse)?'qrhx':'yhx'%>" class="btn qrhx <%=(!coupon.isuse)?'':'gray-btn'%>"><%=(!coupon.isuse)?'确认':'已'%>核销</div>
+			</textarea>
+			<!--kqhxPage结束-->
+			<!--skjgPage开始-->
+			<section id="skjgPage" class="wh-100 hide">
+				<div class="back">
+					卡券核销结果
+					<a href="javascript:window.history.go(-1)">
+						<img src="images/jiantou.png" alt="" />
+					</a>
+				</div>
+				<div class="skcg">
+					<img src="images/gou.png"/>
+					核销成功
+				</div>
+				<div class="detail">
+					<ul id="detail" class="detailList">
+						<!--<li>
+							<div class="left">交易时间</div>
+							<div class="right">2016-5-20 10:20:16</div>
+						
+						</li>-->
+					</ul>
+					<textarea id="detailTMP" class="hide">
+						<li>
+							<div class="left">卡券名称</div>
+							<div class="right"><%=coupon.qname%></div>
+						</li>
+						<li>
+							<div class="left">卡券类型</div>
+							<%
+								var type = [
+									'',
+									'代金券',
+									'折扣券',
+									'礼品券',
+									'优惠券'
+								];
+							%>
+							<div class="right"><%=type[coupon.qtype]%></div>
+						</li>
+						<li>
+							<div class="left">商户名称</div>
+							<div class="right"><%=coupon.name%></div>
+						</li>
+						<li>
+							<div class="left">卡券说明</div>
+							<div class="right"><%=coupon.info%></div>
+						</li>
+						<li>
+							<div class="left">卡券有效期</div>
+							<div class="right"><%=coupon.startdate%>至<%=coupon.enddate%></div>
+						</li>
+					</textarea>
+				</div>
+				<a href="sy.html" class="btn btn-bottom">关闭</a>
+			</section>
+			<!--skjgPage结束-->
+		</article>
+	</body>
+	<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+	<script type="text/javascript" src="js/kqhx.js"></script>
+</html>

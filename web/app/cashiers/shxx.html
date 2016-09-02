@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>收银台</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="js/config.js?__inline"></script>
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://qcdn.letwx.com/app/dist/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+		<article id="main" class="hide">
+			<!--shxxPage开始-->
+			<section id="shxxPage" class="wh-100 hide"></section>
+			<textarea id="shxxTMP" class="hide">
+				<div class="back">
+					商户信息
+					<a href="javascript:window.history.go(-1)">
+						<img src="images/jiantou.png" alt="" />
+					</a>
+				</div>
+				<div class="gap"></div>
+				<ul class="shList">
+					<li>
+						<div class="left">商户号</div>
+						<div class="right"><%=data.no%></div>
+					</li>
+					<li>
+						<div class="left">店铺名称</div>
+						<div class="right"><%=data.name%></div>
+					</li>
+					<li>
+						<div class="left">经营类目</div>
+						<div class="right"><%=data.industry%></div>
+					</li>
+					<li>
+						<div class="left">详细地址</div>
+						<div class="right"><%=data.address%></div>
+					</li>
+				</ul>
+				<div class="gap"></div>
+				<div class="gap"></div>
+				<ul class="shList">
+					<li>
+						<div class="left">联系人</div>
+						<div class="right"><%=data.contact%></div>
+					</li>
+					<li>
+						<div class="left">联系电话</div>
+						<div class="right"><%=data.mobile%></div>
+					</li>
+					<li>
+						<div class="left">联系邮箱</div>
+						<div class="right"><%=data.email%></div>
+					</li>
+				</ul>
+			</textarea>
+			<!--shxxPage结束-->
+		</article>
+	</body>
+	<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+	<script type="text/javascript" src="js/shxx.js"></script>
+</html>

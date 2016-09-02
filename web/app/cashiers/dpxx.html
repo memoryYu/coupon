@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>收银台</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="js/config.js?__inline"></script>
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://qcdn.letwx.com/app/dist/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+		<article id="main" class="hide">
+			<!--dpxxPage开始-->
+			<section id="dpxxPage" class="wh-100 hide"></section>
+			<textarea id="dpxxTMP" class="hide">
+				<div class="back">
+					店铺信息
+					<a href="javascript:window.history.go(-1)">
+						<img src="images/jiantou.png" alt="" />
+					</a>
+				</div>
+				<div class="gap"></div>
+				<a href="shxx.html" class="dianp box box-h box-h-l box-v-c">
+					<img src="<%=data.url%>" class="logo"/>
+					<p><%=data.name%></p>
+					<img src="images/jiantou1.png" class="jiantou"/>
+				</a>
+				<ul class="qudao clearfix">
+				<%
+					var status = [
+						'已开通',
+						'审核中',
+						'未开通'
+					];
+				%>	
+					<li class="box box-v box-center">
+						<img src="images/zfb.png"/>
+						<img class="ykt" src="images/zfb2.png"/>
+						<p>支付宝</p>
+						<div>未开通</div>
+					</li>
+					<li class="box box-v box-center active">
+						<img src="images/weixin1.png"/>
+						<img class="ykt" src="images/weixin.png"/>
+						<p>微信</p>
+						<div><%=status[data.pay.wx]%></div>
+					</li>
+					<li class="box box-v box-center">
+						<img src="images/baidu.png"/>
+						<img class="ykt" src="images/bd.png"/>
+						<p>百度</p>
+						<div>未开通</div>
+					</li>
+				</ul>
+				<!--<a href="sybz.html" class="sybz d-b">-->
+				<a href="<%=data.url%>" class="sybz d-b">	
+					使用帮助
+					<img src="images/jiantou1.png"/>
+				</a>
+				<a id="logout" href="dl.html" style="width: 78%;margin-bottom: 60px;" class="btn d-b">退出</a>
+				<div class="footer clearfix">
+					<a href="sy.html" class="col jy box box-v box-center">
+						<div></div>
+						交易
+					</a>
+					<a href="zdjl.html" class="col zd box box-v box-center">
+						<div></div>
+						账单
+					</a>
+					<a href="#" class="col dp box box-v box-center active">
+						<div></div>
+						店铺
+					</a>
+				</div>
+			</textarea>
+			<!--dpxxPage结束-->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide bg1"></div>
+					<div class="swiper-slide bg1"></div>
+				</div>
+			</div>
+			
+		</article>
+	</body>
+	<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+	<script type="text/javascript" src="js/dpxx.js"></script>
+</html>
